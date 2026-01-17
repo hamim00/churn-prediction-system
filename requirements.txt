@@ -1,50 +1,43 @@
-# ===========================================
-# Customer Churn Prediction System
-# ===========================================
-
-# Core Data Processing
-pandas>=2.0.0
-numpy>=1.24.0
+# Customer Churn Prediction System - Requirements
+# ================================================
 
 # Database
 psycopg2-binary>=2.9.9
-sqlalchemy>=2.0.0
+SQLAlchemy>=2.0.23
+python-dotenv>=1.0.0
+
+# Data Processing
+pandas>=2.1.3
+numpy>=1.24.0
 
 # Machine Learning
-scikit-learn>=1.3.0
-xgboost>=2.0.0
+scikit-learn>=1.3.2
+xgboost>=2.0.2
 imbalanced-learn>=0.11.0
 
 # Experiment Tracking
 mlflow>=2.9.0
 
-# Model Explainability
+# Explainability
 shap>=0.44.0
 
-# API Development
-fastapi>=0.109.0
-uvicorn[standard]>=0.25.0
-pydantic>=2.5.0
-python-multipart>=0.0.6
+# Visualization
+matplotlib>=3.8.2
+seaborn>=0.13.0
 
-# Dashboard
+# API (Module 4)
+fastapi>=0.104.1
+uvicorn>=0.24.0
+pydantic>=2.5.2
+
+# Dashboard (Module 5)
 streamlit>=1.29.0
 plotly>=5.18.0
 
-# Visualization
-matplotlib>=3.8.0
-seaborn>=0.13.0
-
-# Jupyter
-jupyter>=1.0.0
-notebook>=7.0.0
-
 # Utilities
-python-dotenv>=1.0.0
-joblib>=1.3.0
-tqdm>=4.66.0
-requests>=2.31.0
+joblib>=1.3.2
+tqdm>=4.66.1
 
-# Testing
-pytest>=7.4.0
-httpx>=0.26.0
+# Development
+jupyter>=1.0.0
+ipykernel>=6.27.0

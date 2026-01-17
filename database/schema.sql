@@ -203,3 +203,21 @@ CREATE TRIGGER contracts_update_timestamp
     BEFORE UPDATE ON customer_contracts
     FOR EACH ROW
     EXECUTE FUNCTION update_timestamp();
+
+SELECT * FROM service_types;
+CREATE OR REPLACE VIEW v_customer_services_summary AS
+SELECT 
+    cs.customer_id,
+    BOOL_OR(CASE WHEN st.service_name = 'PhoneService' THEN cs.is_subscribed ELSE FALSE END) AS has_phone_service,
+    BOOL_OR(CASE WHEN st.service_name = 'MultipleLines' THEN cs.is_subscribed ELSE FALSE END) AS has_multiple_lines,
+    BOOL_OR(CASE WHEN st.service_name = 'InternetService_DSL' THEN cs.is_subscribed ELSE FALSE END) AS has_dsl,
+    BOOL_OR(CASE WHEN st.service_name = 'InternetService_Fiber' THEN cs.is_subscribed ELSE FALSE END) AS has_fiber,
+    BOOL_OR(CASE WHEN st.service_name = 'OnlineSecurity' THEN cs.is_subscribed ELSE FALSE END) AS has_online_security,
+    BOOL_OR(CASE WHEN st.service_name = 'OnlineBackup' THEN cs.is_subscribed ELSE FALSE END) AS has_online_backup,
+    BOOL_OR(CASE WHEN st.service_name = 'DeviceProtection' THEN cs.is_subscribed ELSE FALSE END) AS has_device_protection,
+    BOOL_OR(CASE WHEN st.service_name = 'TechSupport' THEN cs.is_subscribed ELSE FALSE END) AS has_tech_support,
+    BOOL_OR(CASE WHEN st.service_name = 'StreamingTV' THEN cs.is_subscribed ELSE FALSE END) AS has_streaming_tv,
+    BOOL_OR(CASE WHEN st.service_name = 'StreamingMovies' THEN cs.is_subscribed ELSE FALSE END) AS has_streaming_movies
+FROM customer_services cs
+JOIN service_types st ON cs.service_type_id = st.service_type_id
+GROUP BY cs.customer_id;

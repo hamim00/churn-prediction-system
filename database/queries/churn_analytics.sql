@@ -560,22 +560,3 @@ UNION ALL SELECT 'High-Value At-Risk Customers', hv_at_risk_count::TEXT FROM hig
 UNION ALL SELECT 'High-Value At-Risk Revenue ($)', ROUND(hv_at_risk_revenue, 2)::TEXT FROM high_value_at_risk;
 
 
--- ============================================================================
--- Query Index Summary
--- ============================================================================
--- Query 1:  Basic - Overall Churn Summary (CASE, COUNT)
--- Query 2:  Basic - Churn by Contract Type (JOIN, GROUP BY)
--- Query 3:  Basic - Churn by Tenure Buckets (CASE bucketing)
--- Query 4:  Basic - Churn by Payment Method (JOIN, aggregation)
--- Query 5:  Intermediate - Revenue Impact Analysis (UNION ALL)
--- Query 6:  Intermediate - Service Adoption vs Churn (CROSS JOIN, conditional agg)
--- Query 7:  Intermediate - Customer Risk Segmentation (Subquery, complex CASE)
--- Query 8:  Intermediate - Demographic Churn Analysis (Multi-column grouping)
--- Query 9:  Advanced - CLV Analysis with Ranking (CTE, NTILE, RANK)
--- Query 10: Advanced - RFM Segmentation (Multiple CTEs, Window functions)
--- Query 11: Advanced - Churn Probability Bands (SUM OVER, LAG)
--- Query 12: Advanced - Service Bundle Analysis (STRING_AGG)
--- Query 13: BI - Cohort Retention Analysis (Complex CTE)
--- Query 14: BI - Contract Upgrade Opportunities (Business rules)
--- Query 15: BI - Executive Dashboard Query (Comprehensive summary)
--- ============================================================================
